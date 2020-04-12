@@ -4,7 +4,11 @@ Developed by [sharadcodes](https://github.com/sharadcodes) with :heart:
 
 ![Shar Screenshot](https://raw.githubusercontent.com/sharadcodes/Shar-Player/master/screenshots/shar.png)
 
-### How to use
+## DEMO
+
+Example 1: [LIVE DEMO](https://sharadcodes.github.io/Shar-Player/examples/first/index.html)
+
+## USAGE
 
 ```html
 <!DOCTYPE html>
