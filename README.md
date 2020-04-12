@@ -1,7 +1,8 @@
 # Shar-Player
 A minimal audio player written in Vanilla JS
+Developed by [sharadcodes](https://github.com/sharadcodes) with :heart:
 
-<img src='https://raw.githubusercontent.com/sharadcodes/Shar-Player/master/screenshots/shar.png'/>
+![Shar Screenshot](https://raw.githubusercontent.com/sharadcodes/Shar-Player/master/screenshots/shar.png)
 
 ### How to use
 
