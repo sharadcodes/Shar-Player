@@ -1,7 +1,7 @@
 # Shar-Player
 A minimal audio player written in Vanilla JS
 
-![Screenshot]('screenshots/shar.png')
+![Screenshot]('https://raw.githubusercontent.com/sharadcodes/Shar-Player/master/screenshots/shar.png')
 
 ### How to use
 
