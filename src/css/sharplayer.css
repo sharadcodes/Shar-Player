@@ -5,10 +5,16 @@ main {
 
 .sharplayer * {
   outline: none !important;
-  user-select: none;
+  --webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none !important;
 }
 .sharplayer {
-  background-color: #edf2f7;
+  background-color: #282828;
   display: inline-block;
   padding: 15px;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
@@ -36,14 +42,11 @@ main {
 }
 
 .sharplayer button {
-  color: rgb(35, 184, 211);
+  color: #6d6d6d;
   border-radius: 100%;
-  background-color: #ffffff;
+  background-color: #202020;
   border: none;
-  box-shadow: 0 1px 1.7px rgba(0, 0, 0, 0.028), 0 2.4px 4px rgba(0, 0, 0, 0.041),
-    0 4.3px 7.3px rgba(0, 0, 0, 0.051), 0 7.1px 12px rgba(0, 0, 0, 0.059),
-    0 11.6px 19.8px rgba(0, 0, 0, 0.069), 0 20.3px 34.7px rgba(0, 0, 0, 0.082),
-    0 44px 75px rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +54,7 @@ main {
 }
 
 .sharplayer button:active {
-  background: rgb(202, 247, 255);
+  background: #383838;
 }
 
 .sharplayer .pre-track,
@@ -72,7 +75,7 @@ main {
 .sharplayer .current-track {
   font-family: monospace;
   font-weight: 600;
-  color: rgb(0, 140, 255);
+  color: #a8a8a8;
   text-align: center;
   padding: 30px 15px 0px 15px;
   font-size: 20px;
@@ -81,7 +84,7 @@ main {
 /* trackbar */
 
 .track-bar {
-  background-color: rgb(160, 212, 255);
+  background-color: #a8a8a8;
   height: 5px;
   margin: 15px 0px 2px 0px;
   position: relative;
@@ -89,7 +92,7 @@ main {
 
 .track-bar-position {
   position: absolute;
-  background-color: rgb(0, 140, 255);
+  background-color: #404040;
   width: 0%;
   top: 0;
   bottom: 0;
@@ -103,7 +106,7 @@ main {
   align-items: center;
   font-family: monospace;
   font-size: 10px;
-  color: rgb(0, 140, 255);
+  color: #a8a8a8;
   margin-bottom: 15px;
 }
 
@@ -111,22 +114,24 @@ main {
 .sharplayer .tracks {
   font-family: monospace;
   display: grid;
-  row-gap: 5px;
+  /* row-gap: 5px; */
   max-height: 150px !important;
   overflow-y: auto;
 }
 
 .sharplayer .tracks .track {
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 8px #202020;
   display: flex;
   justify-content: left;
   align-items: center;
   cursor: pointer;
-  color: rgb(0, 140, 255);
+  color: #a8a8a8;
+  margin-top: 8px;
+  border: 1px solid #202020;
 }
 
 .sharplayer .tracks .track:active {
-  background-color: rgb(202, 247, 255);
+  background-color: #202020;
 }
 
 .sharplayer .tracks .track .small-artwork {
@@ -138,4 +143,20 @@ main {
 .sharplayer .tracks .track .track-name {
   padding-left: 15px;
   font-size: 12px;
+}
+
+.sharplayer *::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sharplayer *::-webkit-scrollbar-track {
+  background: #666666;
+}
+
+.sharplayer *::-webkit-scrollbar-thumb {
+  background: #444444;
+}
+
+.sharplayer *::-webkit-scrollbar-thumb:hover {
+  background: #333333;
 }
