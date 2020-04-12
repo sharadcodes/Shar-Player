@@ -1,0 +1,141 @@
+main {
+  margin: auto;
+  max-width: 600px;
+}
+
+.sharplayer * {
+  outline: none !important;
+  user-select: none;
+}
+.sharplayer {
+  background-color: #edf2f7;
+  display: inline-block;
+  padding: 15px;
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+}
+
+.sharplayer .top {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sharplayer .artwork {
+  background: black;
+  height: 100px;
+  width: 100px;
+}
+
+.sharplayer .controlls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.sharplayer button {
+  color: rgb(35, 184, 211);
+  border-radius: 100%;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 1px 1.7px rgba(0, 0, 0, 0.028), 0 2.4px 4px rgba(0, 0, 0, 0.041),
+    0 4.3px 7.3px rgba(0, 0, 0, 0.051), 0 7.1px 12px rgba(0, 0, 0, 0.059),
+    0 11.6px 19.8px rgba(0, 0, 0, 0.069), 0 20.3px 34.7px rgba(0, 0, 0, 0.082),
+    0 44px 75px rgba(0, 0, 0, 0.11);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sharplayer button:active {
+  background: rgb(202, 247, 255);
+}
+
+.sharplayer .pre-track,
+.sharplayer .next-track {
+  width: 40px;
+  height: 40px;
+}
+
+.sharplayer .play-pause-track {
+  height: 100px;
+  width: 100px;
+}
+
+.play-pause-track span {
+  font-size: 60px;
+}
+
+.sharplayer .current-track {
+  font-family: monospace;
+  font-weight: 600;
+  color: rgb(0, 140, 255);
+  text-align: center;
+  padding: 30px 15px 0px 15px;
+  font-size: 20px;
+}
+
+/* trackbar */
+
+.track-bar {
+  background-color: rgb(160, 212, 255);
+  height: 5px;
+  margin: 15px 0px 2px 0px;
+  position: relative;
+}
+
+.track-bar-position {
+  position: absolute;
+  background-color: rgb(0, 140, 255);
+  width: 0%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* time */
+.track-duration-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 10px;
+  color: rgb(0, 140, 255);
+  margin-bottom: 15px;
+}
+
+/* playlist tracks */
+.sharplayer .tracks {
+  font-family: monospace;
+  display: grid;
+  row-gap: 5px;
+  max-height: 150px !important;
+  overflow-y: auto;
+}
+
+.sharplayer .tracks .track {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  color: rgb(0, 140, 255);
+}
+
+.sharplayer .tracks .track:active {
+  background-color: rgb(202, 247, 255);
+}
+
+.sharplayer .tracks .track .small-artwork {
+  width: 50px;
+  height: 50px;
+  background: black;
+}
+
+.sharplayer .tracks .track .track-name {
+  padding-left: 15px;
+  font-size: 12px;
+}
