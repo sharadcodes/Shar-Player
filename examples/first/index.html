@@ -1,14 +1,5 @@
-# Shar-Player
-A minimal audio player written in Vanilla JS
-
-![Screenshot]('screenshots/shar.png')
-
-### How to use
-
-```html
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,11 +10,9 @@ A minimal audio player written in Vanilla JS
     />
     <link rel="stylesheet" href="../../src/css/sharplayer.css" />
   </head>
-
   <body>
-
+    <div class="sharplayer" id="myplayer"></div>
     <script src="../../src/js/sharplayer.js"></script>
-
     <script>
       window.onload = function () {
         const song_list = [
@@ -33,17 +22,14 @@ A minimal audio player written in Vanilla JS
           "audio_files/bensound-anewbeginning.mp3",
         ];
         //   new object
-        new SharPlayer("player", {
+        new SharPlayer("myplayer", {
           tracks: song_list,
-          titles: false, 
+          titles: false,
           artwork: false,
         })
           .initPlayer()
           .show();
       };
     </script>
-
   </body>
-
 </html>
-```
