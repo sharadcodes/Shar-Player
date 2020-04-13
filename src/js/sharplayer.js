@@ -20,29 +20,25 @@ next_btn.innerHTML = ` <span class="material-icons">skip_next</span>`;
 let track_marquee = document.createElement("marquee");
 track_marquee.classList.add("current-track");
 track_marquee.innerText = "Loading ...";
-const a_title_id = "audio_track_title_" + this.id;
-track_marquee.id = a_title_id;
+
 // track bar
 let track_bar_div = document.createElement("div");
 track_bar_div.classList.add("track-bar");
 let track_bar_position_div = document.createElement("div");
 track_bar_position_div.classList.add("track-bar-position");
+let audio_track_tooltip = document.createElement("span");
 // track duration
 let track_duration_wrapper_div = document.createElement("div");
 track_duration_wrapper_div.classList.add("track-duration-wrapper");
 track_duration_wrapper_div.innerHTML = "<span>00:00:00</span>";
 let track_duration_div = document.createElement("span");
 track_duration_div.classList.add("track-duration");
-const a_duration_id = "audio_track_duration" + this.id;
-track_duration_div.id = a_duration_id;
 // tracks
 let tracks_div = document.createElement("div");
 tracks_div.classList.add("tracks");
 
 // audio tag
 let audio_tag = document.createElement("audio");
-const a_id = "audio_" + this.id;
-audio_tag.id = a_id;
 audio_tag.setAttribute("preload", "metadata");
 
 // flags
@@ -115,6 +111,16 @@ class SharPlayer {
     const root = document.getElementById(this.id);
     // append main class
     root.classList.add("sharplayer");
+
+    // add ids
+    const a_title_id = "audio_track_title_" + this.id;
+    track_marquee.id = a_title_id;
+    const a_track_t_tip_id = "audio_track_tooltip_" + this.id;
+    audio_track_tooltip.id = a_track_t_tip_id;
+    const a_duration_id = "audio_track_duration_" + this.id;
+    track_duration_div.id = a_duration_id;
+    const a_id = "audio_" + this.id;
+    audio_tag.id = a_id;
 
     // loop over tracks
     this.completeTrackInfoList.map((trk, i) => {
@@ -208,6 +214,28 @@ class SharPlayer {
       }
     });
 
+    track_bar_div.addEventListener("mousemove", (e) => {
+      let x = e.clientX,
+        y = e.clientY;
+      audio_track_tooltip.style.top = y - 25 + "px";
+      audio_track_tooltip.style.left = x - 10 + "px";
+      let per = Math.floor((e.x / track_bar_div.clientWidth) * 100) - 6;
+      if (readableDuration(percentageToSeconds(per, a_id)) !== "0NaN:0NaN") {
+        audio_track_tooltip.innerText = readableDuration(
+          percentageToSeconds(per, a_id)
+        );
+      } else {
+        audio_track_tooltip.innerText = "No Track"
+      }
+    });
+    track_bar_div.addEventListener("click", (e) => {
+      let per = Math.floor((e.x / track_bar_div.clientWidth) * 100) - 6;
+      document.getElementById(a_id).currentTime = percentageToSeconds(
+        per,
+        a_id
+      );
+    });
+
     // append to dom
     top_div.appendChild(artwork_div);
     controlls_div.appendChild(prev_btn);
@@ -219,6 +247,7 @@ class SharPlayer {
     root.appendChild(top_div);
     root.appendChild(track_marquee);
     track_bar_div.appendChild(track_bar_position_div);
+    track_bar_div.appendChild(audio_track_tooltip);
     root.appendChild(track_bar_div);
     track_duration_wrapper_div.appendChild(track_duration_div);
     root.appendChild(track_duration_wrapper_div);
@@ -226,6 +255,14 @@ class SharPlayer {
   }
 
   playFirstTrack() {
+    const a_title_id = "audio_track_title_" + this.id;
+    track_marquee.id = a_title_id;
+    const a_track_t_tip_id = "audio_track_tooltip_" + this.id;
+    audio_track_tooltip.id = a_track_t_tip_id;
+    const a_duration_id = "audio_track_duration_" + this.id;
+    track_duration_div.id = a_duration_id;
+    const a_id = "audio_" + this.id;
+    audio_tag.id = a_id;
     const audio_target = document.getElementById(a_id);
     const track_duration = document.getElementById(a_duration_id);
     if (audio_target.src == "") {
@@ -266,6 +303,14 @@ class SharPlayer {
   }
 
   playTrackWithId(index) {
+    const a_title_id = "audio_track_title_" + this.id;
+    track_marquee.id = a_title_id;
+    const a_track_t_tip_id = "audio_track_tooltip_" + this.id;
+    audio_track_tooltip.id = a_track_t_tip_id;
+    const a_duration_id = "audio_track_duration_" + this.id;
+    track_duration_div.id = a_duration_id;
+    const a_id = "audio_" + this.id;
+    audio_tag.id = a_id;
     const audio_target = document.getElementById(a_id);
     const track_duration = document.getElementById(a_duration_id);
     audio_target.src = this.completeTrackInfoList[index].src;
@@ -299,4 +344,10 @@ function readableWidth(seconds, duration) {
   current = Math.floor(seconds);
   total = duration;
   return (current / duration) * 100;
+}
+
+function percentageToSeconds(percentage, id) {
+  const tgt = document.getElementById(id);
+  const time = (percentage * tgt.duration) / 100;
+  return time;
 }

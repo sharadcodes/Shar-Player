@@ -86,9 +86,10 @@ main {
 
 .track-bar {
   background-color: #a8a8a8;
-  height: 5px;
+  height: 8px;
   margin: 15px 0px 2px 0px;
   position: relative;
+  cursor: ew-resize;
 }
 
 .track-bar-position {
@@ -98,6 +99,20 @@ main {
   top: 0;
   bottom: 0;
   left: 0;
+}
+
+.track-bar span {
+  display: none;
+}
+.track-bar:hover span {
+  display: block;
+  position: fixed;
+  overflow: hidden;
+  background: #a8a8a8;
+  color: #282828;
+  padding: 2px;
+  font-size: 10px;
+  font-family: monospace;
 }
 
 /* time */
